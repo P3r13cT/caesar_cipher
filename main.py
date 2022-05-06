@@ -3,9 +3,7 @@ dictionary = []
 dictionary.append([chr(i) for i in range(ord('a'), ord('z') + 1)])
 dictionary.append([i.upper() for i in dictionary[0]])
 dictionary.append([chr(i) for i in range(ord('а'), ord('я') + 1)])
-dictionary[2].insert(6, 'ё')
 dictionary.append([i.upper() for i in dictionary[2]])
-dictionary[3].insert(6, 'Ё')
 
 
 def decipher(txt, step, dct):
@@ -50,6 +48,7 @@ if lang == 'ru':
     mode = ''
     while mode.isdigit() is False:
         mode = input('Режимы:\n 1) Зашифровать\n 2) Расшифровать\nВыберите режим: ')
+    mode = int(mode)
 else:
     text = input('Enter your text: ')
     shift = ''
@@ -59,4 +58,5 @@ else:
     mode = ''
     while mode.isdigit() is False:
         mode = input('Modes:\n 1) Encrypt\n 2) Decrypt\nSelect your mode: ')
+    mode = int(mode)
 print(caesar_cipher(text, mode, lang, shift))
